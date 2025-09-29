@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Music Quiz</title>
+		<link rel="stylesheet" href="styles.css">
+		<script src="script.js"></script>
+	</head>
+
+	<body>
+		<div>
+			<input type="text" id="team1-bonus" value="3" min="0">
+			<h3>Team 1</h3>
+		</div>
+		<div>
+			<input type="text" id="team2-bonus" value="3" min="0">
+			<h3>Team 2</h3>
+		</div>
+		<div>
+			<input type="text" id="team3-bonus" value="3" min="0">
+			<h3>Team 3</h3>
+		</div>
+		<div>
+			<input type="text" id="team4-bonus" value="3" min="0">
+			<h3>Team 4</h3>
+		</div>
+
+		<div id="cardWrapper"></div>
+
+		<div class="rulesWrapper hide">
+			<h1>Musik Quiz</h1>
+			<h2>Regeln</h2>
+			<ul>
+				<li>Ich bestimme wer wann mitmachen kann und wer wann gehen muss (trollt nicht, seid lieb zueinander).</li>
+				<li>Das Ziel ist es als erstes Team 10 Songs richtig eingeordnet zu haben.</li>
+			</ul>
+
+			<h2>Chips</h2>
+			<ul>
+				<li>Chips können für das Vetorecht oder Song-Karten verwendet werden.</li>
+				<li>Ein Veto einzulegen kostet 3 Chips.</li>
+				<li>Eine Song-Karte kostet 10 Chips.</li>
+				<li>Chips können verdient werden, wenn man eine Karte richtig einsortiert und zusätzlich den richtigen Interpreten <b>und</b> den richtigen Titel nennen kann.</li>
+			</ul>
+
+			<h2>Ablauf</h2>
+			<ol>
+				<li>Dem Team wird ein Song vorgespielt (etwa 30 Sek., damit wir nicht zu lange brauchen).</li>
+				<li>Dieser Song muss dann anhand des Erscheinungsjahrs zwischen die bereits vorliegenden Songs eingeordnet werden.<br>
+				Dies wird in der Gruppe abgeprochen und final an den Spielleiter (mich) kommuniziert.</li>
+				<li>Wenn eine andere Gruppe meint, dass der Song nicht richtig einsortiert wurde, kann diese für 3 Chips ein Veto einlegen. Vorrang hat die Gruppe, die als nächstes dran wäre. Dann geht es der Reihe nach.</li>
+				<li>Wenn der Song tatsächlich an einer falschen Stelle positioniert war, bekommt ihn das Team, welches das Veto eingelegt hat.</li>
+			</ol>
+
+			<span>Diese Info mit shift + i ausblenden und anzeigen.</span>
+		</div>
+
+	</body>
+</html>
