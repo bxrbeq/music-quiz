@@ -193,7 +193,7 @@ function teamAddRemove(teamID) {
 		let teams = document.querySelectorAll('[data-team]');
 		let newID = teams.length + 1;
 		const div = document.createElement('div');
-		div.innerHTML = `<input type="text" id="team${newID}-bonus" value="3" min="0"><h3 data-team="${newID}">Team ${newID}</h3>`;
+		div.innerHTML = `<h3 data-team="${newID}">Team ${newID}</h3><input type="text" id="team${newID}-bonus" value="3" min="0">`;
 		document.querySelector('body').appendChild(div);
 	}
 }
