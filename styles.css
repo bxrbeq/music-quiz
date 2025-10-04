@@ -8,6 +8,7 @@
 body {
 	display: flex;
 	flex-direction: column;
+	align-items: stretch;
 	margin: 0;
 	padding: 0;
 	width: 100vw;
@@ -29,14 +30,15 @@ body {
 }
 
 body > div {
+	flex: 1;
+	height: 100%;
 	position: relative;
-	height: 25%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-end;
 }
-body > div:nth-child(2), body > div:nth-child(4) {
+body > div:nth-child(even) {
 	background-image: linear-gradient(#00000033,#00000033);
 }
 
@@ -57,6 +59,7 @@ input {
 }
 
 #cardWrapper {
+	position: absolute;
 	height: 0;
 	width: 0;
 }
@@ -67,6 +70,7 @@ input {
 	height: 10%;
 	padding: 5px 0;
 	border: 2px solid var(--card-border-color);
+	outline: none;
 	box-shadow: 1px 0 5px inset var(--card-shadow-color), -1px 0 10px -3px var(--card-shadow-color);
 	text-align: center;
 	font-size: large;

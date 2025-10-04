@@ -4,21 +4,33 @@ let ANZAHL_RUNDEN = 10;
 document.addEventListener("DOMContentLoaded", () => {
 	let cards = [];
 	let keys = Object.keys(localStorage);
-	let i = keys.length;
 
-    while ( i-- ) {
-		let obj = new Object()
-		obj.id = keys[i]
-		obj.data = localStorage.getItem(keys[i])
-        cards.push(obj);
-    }
-	cards.forEach(card => {
-		card = createCard(card.id, JSON.parse(card.data))
+	for (let i = 0; i <= keys.length + 1; i++) {
+		let obj = new Object();
+		obj.id = keys[i];
+		obj.data = localStorage.getItem(keys[i]);
+		if (obj.id ? obj.id.startsWith('card') : false) {cards.push(obj)};
+	}
+
+	if (cards.length > 0) {
+		cards.forEach(card => {
+			card = createCard(card.id, JSON.parse(card.data))
+		})
+	}
+
+	//load team names from local storage
+	let teams = document.querySelectorAll('[data-team]');
+	teams.forEach(team => {
+		let name = localStorage.getItem(`team-${team.dataset.team}`);
+		if (name) {
+			team.innerText = name;
+		} else {
+			team.innerText = 'Team ' + team.dataset.team;
+		}
 	})
 })
 
 window.addEventListener('keydown', async e => {
-	console.log(e)
 	// create new cards, retrieving data from json
 	if (e.key === ' ' && e.shiftKey) {
 		let id = 0;
@@ -97,7 +109,7 @@ function addMovement(card) {
 				break;
 			}
 		}
-		let teams = document.querySelectorAll('h3').length;
+		let teams = document.querySelectorAll('[data-team]').length;
 		let yLocks = getLockPoints(totHeight, teams)
 		for (let y of yLocks) {
 			y = y / totHeight;
@@ -167,6 +179,25 @@ function createCard(id, data) {
 	handleCard(card);
 }
 
+function changeTeamName(teamID, name) {
+	let h3 = document.querySelector(`[data-team="${teamID}"]`);
+	h3.innerText = name;
+	localStorage.setItem(`team-${teamID}`, name);
+}
+
+function teamAddRemove(teamID) {
+	if (teamID) {
+		document.querySelector(`[data-team="${teamID}"]`).parentElement.remove();
+		localStorage.removeItem(`team-${teamID}`);
+	} else {
+		let teams = document.querySelectorAll('[data-team]');
+		let newID = teams.length + 1;
+		const div = document.createElement('div');
+		div.innerHTML = `<input type="text" id="team${newID}-bonus" value="3" min="0"><h3 data-team="${newID}">Team ${newID}</h3>`;
+		document.querySelector('body').appendChild(div);
+	}
+}
+
 function updateLocalStorage(card, key, value) {
 	let cData = JSON.parse(localStorage.getItem(card));
 	cData[key] = value;
@@ -174,6 +205,6 @@ function updateLocalStorage(card, key, value) {
 }
 
 function hilfe() {
-	console.log(`Anzahl der Runden:    ${10} (anpassbar mit ANZAHL_RUNDEN);\nneue Karte:           shift + Leertaste;\nRegeln anzeigen:      shift + i;\nDiese Hilfe anzeigen: 'hilfe()';`);
+	console.log(`Anzahl der Runden:    ${10} (anpassbar mit (int) "ANZAHL_RUNDEN")\nTeamname ändern:      changeTeamName((int) teamID, (string) name)\nTeam hinzufügen:      teamAddRemove()\nTeam entfernen:       teamAddRemove((int) teamID)\n\nneue Karte:           shift + Leertaste\nKarte aufdecken:      Fokus auf Karte + Leertaste\n\nRegeln anzeigen:      shift + i\nDiese Hilfe anzeigen: 'hilfe()';`);
 }
 hilfe();
