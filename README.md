@@ -8,6 +8,10 @@ Ein interaktives Musik-Quiz, bei dem Nutzer:innen Fragen zu verschiedenen Musikr
 - ein Host, der alles managed
 - Karten zeigen die Songs in der Reihnfolge aus der songs.json
 
+## Erfahrungen
+
+ - _PLatz für Erfahrungen, bspw. wie viele Songs bei wie viel Teams und bei welchem Ziel benötigt wurden_
+
 ## Installation
 
 1. Repository klonen:
