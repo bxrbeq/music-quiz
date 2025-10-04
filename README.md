@@ -10,7 +10,7 @@ Ein interaktives Musik-Quiz, bei dem Nutzer:innen Fragen zu verschiedenen Musikr
 
 ## Erfahrungen
 
- - _PLatz für Erfahrungen, bspw. wie viele Songs bei wie viel Teams und bei welchem Ziel benötigt wurden_
+ - 3 Teams, 7 Spieler:innen, 10 Songs, bis Song 32
 
 ## Installation
 
